@@ -57,3 +57,38 @@ class ProjectManager extends Instructor{
         console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
     }
 }
+
+const chad = new Person({
+    name: 'Chad',
+    age: 20,
+    location: 'Dallas'
+})
+
+const jeff = new Student({
+    name: 'Jeff',
+    age: 24,
+    location: 'Boston',
+    previousBackground: 'Fire fighter',
+    className: 'CS132',
+    favSubjects: ['Html', 'CSS', 'JavaScript']
+});
+
+const fred = new Instructor({
+    name: 'Fred',
+    location: 'Bedrock',
+    age: 37,
+    favLanguage: 'JavaScript',
+    specialty: 'Front-end',
+    catchPhrase: `Live long and prosper`
+});
+
+const jessica = new ProjectManager({
+    name: 'Jessica',
+    age: 28,
+    location: 'Washington',
+    favLanguage: 'Python',
+    specialty: 'Back-end',
+    catchPhrase: 'Hello, my name is Inigo Montoya. You killed my father. Prepare to die.',
+    gradClassName: 'CS1',
+    favInstructor: 'Dan'
+})
