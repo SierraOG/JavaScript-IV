@@ -3,7 +3,7 @@
 class Person{
     constructor(attributes){
         this.name = attributes.name;
-        this.age = attributes.name;
+        this.age = attributes.age;
         this.location = attributes.location;
     }
     speak(){
@@ -34,7 +34,7 @@ class Student extends Person{
         this.favSubjects = attributes.favSubjects;
     }
     listsSubjects(){
-        console.log(...this.favLanguage);
+        console.log(...this.favSubjects);
     }
     PRAssignment(subject){
         console.log(`${this.name} has submitted a PR for ${subject}`);
@@ -67,7 +67,7 @@ const chad = new Person({
 const juhi = new Person({
     name: 'Juhi',
     age: 20,
-    location: 'Idaho'
+    location: 'Idaho',
 })
 
 const jeff = new Student({
@@ -125,3 +125,17 @@ const steve = new ProjectManager({
     specialty: 'Front-end',
     catchPhrase: "We're not in Kansas anymore"
 })
+
+//persons
+chad.speak();
+console.log(juhi);
+//students
+jeff.listsSubjects();
+paula.sprintChallenge('JavaScript');
+paula.PRAssignment('JavaScript sprint challenge');
+//instructors
+fred.demo('JavaScript IV');
+corey.grade(paula, 'JavaScript sprint challenge')
+//project manager
+jessica.standUp('web21_jes');
+steve.debugsCode(jeff,'JavaScript IV');
