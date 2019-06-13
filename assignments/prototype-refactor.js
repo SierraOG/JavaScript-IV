@@ -105,3 +105,83 @@ console.log(archer.language); // Elvish
 console.log(archer.greet()); // Lilith offers a greeting in Elvish.
 console.log(mage.takeDamage()); // Bruce took damage.
 console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
+
+
+
+class Hero extends Humanoid{
+    constructor(attributes){
+        super(attributes);
+        this.attackPoints = attributes.attackPoints;
+        this.nemesis = attributes.nemesis;
+    }
+    doJustice(){
+        this.nemesis.healthPoints -= this.attackPoints;
+        if (this.nemesis.healthPoints <= 0){
+            return this.nemesis.destroy();
+        }
+        else{
+            return `${this.name} does damage to villain ${this.nemesis.name}.`;
+        }
+    }
+}
+
+class Villain extends Humanoid{
+    constructor(attributes){
+        super(attributes);
+        this.nemesis = attributes.nemesis;
+        this.attackPoints = attributes.attackPoints;
+    }
+    doEvil(){
+        this.nemesis.healthPoints -= this.attackPoints;
+        if (this.nemesis.healthPoints <= 0){
+            return this.nemesis.destroy();
+        }
+        else{
+            return `${this.name} does damage to hero ${this.nemesis.name}.`;
+        }
+    }
+}
+
+const heroPaladin = new Hero({
+    createdAt: new Date(),
+    dimensions: {
+        length: 1,
+        width: 1,
+        height: 2,
+    },
+    healthPoints: 7,
+    name: 'Brea',
+    team: 'Oathbreaker',
+    weapons: [
+        'Two Handed Sword',
+    ],
+    language: 'Common Tongue',
+    attackPoints: 4,
+});
+
+const villainDruid = new Villain({
+    createdAt: new Date(),
+    dimensions: {
+        length: 2,
+        width: 3,
+        height: 2,
+    },
+    healthPoints: 10,
+    name: 'Ivybeard',
+    team: 'Spores',
+    weapons: [
+        'Dagger',
+        'sickle',
+    ],
+    language: 'Common Tongue',
+    nemesis: heroPaladin,
+    attackPoints: 3,
+});
+
+heroPaladin.nemesis = villainDruid;
+
+console.log(villainDruid.doEvil());
+console.log(heroPaladin.doJustice());
+console.log(villainDruid.doEvil());
+console.log(heroPaladin.doJustice());
+console.log(heroPaladin.doJustice());
