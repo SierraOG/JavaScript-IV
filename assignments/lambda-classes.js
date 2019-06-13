@@ -1,4 +1,10 @@
 // CODE here for your Lambda Classes
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+}
+
 
 class Person{
     constructor(attributes){
@@ -24,6 +30,10 @@ class Instructor extends Person {
     grade(student,subject){
         console.log(`${student.name} receives a perfect score on ${subject}`);
     }
+    regrade(student){
+        student.graded = student.graded + getRandomInt(-20,20);
+        console.log(`${student.name} now made a ${student.graded}`);
+    }
 }
 
 class Student extends Person{
@@ -32,6 +42,7 @@ class Student extends Person{
         this.previousBackground = attributes.previousBackground;
         this.className = attributes.className;
         this.favSubjects = attributes.favSubjects;
+        this.graded = attributes.graded;
     }
     listsSubjects(){
         console.log(...this.favSubjects);
@@ -41,6 +52,14 @@ class Student extends Person{
     }
     sprintChallenge(subject){
         console.log(`${this.name} has begun sprint challenge on ${subject}`);
+    }
+    graduate(){
+        if (this.graded >= 70){
+            console.log(`${this.name} has a ${this.graded} and graduated from Lambda`);
+        }
+        else {
+            console.log(`${this.name} has a ${this.graded} and can't graduate yet`);
+        }
     }
 }
 
@@ -76,7 +95,8 @@ const jeff = new Student({
     location: 'Boston',
     previousBackground: 'Fire fighter',
     className: 'CS132',
-    favSubjects: ['Html', 'CSS', 'JavaScript']
+    favSubjects: ['Html', 'CSS', 'JavaScript'],
+    graded: 50
 });
 
 const paula = new Student({
@@ -85,7 +105,8 @@ const paula = new Student({
     location: 'California',
     previousBackground: 'Student',
     className: 'CS42',
-    favSubjects: ['operating systems', 'algorithms', 'matrices']
+    favSubjects: ['operating systems', 'algorithms', 'matrices'],
+    graded: 100
 })
 
 const fred = new Instructor({
@@ -126,16 +147,23 @@ const steve = new ProjectManager({
     catchPhrase: "We're not in Kansas anymore"
 })
 
-//persons
+
 chad.speak();
 console.log(juhi);
-//students
+
 jeff.listsSubjects();
 paula.sprintChallenge('JavaScript');
 paula.PRAssignment('JavaScript sprint challenge');
-//instructors
+paula.graduate();
+jeff.graduate();
+
 fred.demo('JavaScript IV');
 corey.grade(paula, 'JavaScript sprint challenge')
-//project manager
+
 jessica.standUp('web21_jes');
 steve.debugsCode(jeff,'JavaScript IV');
+steve.regrade(jeff);
+steve.regrade(jeff);
+steve.regrade(jeff);
+
+jeff.graduate();
