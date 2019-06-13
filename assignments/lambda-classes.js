@@ -60,8 +60,14 @@ class ProjectManager extends Instructor{
 
 const chad = new Person({
     name: 'Chad',
-    age: 20,
+    age: 29,
     location: 'Dallas'
+})
+
+const juhi = new Person({
+    name: 'Juhi',
+    age: 20,
+    location: 'Idaho'
 })
 
 const jeff = new Student({
@@ -73,6 +79,15 @@ const jeff = new Student({
     favSubjects: ['Html', 'CSS', 'JavaScript']
 });
 
+const paula = new Student({
+    name: 'Paula',
+    age: 19,
+    location: 'California',
+    previousBackground: 'Student',
+    className: 'CS42',
+    favSubjects: ['operating systems', 'algorithms', 'matrices']
+})
+
 const fred = new Instructor({
     name: 'Fred',
     location: 'Bedrock',
@@ -81,6 +96,15 @@ const fred = new Instructor({
     specialty: 'Front-end',
     catchPhrase: `Live long and prosper`
 });
+
+const corey = new Instructor({
+    name: 'Corey',
+    location: 'Phoenix',
+    age: 23,
+    favLanguage: 'Python',
+    specialty: 'Machine learning',
+    catchPhrase: 'Corey says hi'
+})
 
 const jessica = new ProjectManager({
     name: 'Jessica',
@@ -91,4 +115,13 @@ const jessica = new ProjectManager({
     catchPhrase: 'Hello, my name is Inigo Montoya. You killed my father. Prepare to die.',
     gradClassName: 'CS1',
     favInstructor: 'Dan'
+})
+
+const steve = new ProjectManager({
+    name: 'Steve',
+    age: 48,
+    location: 'Austin',
+    favLanguage: 'C++',
+    specialty: 'Front-end',
+    catchPhrase: "We're not in Kansas anymore"
 })
